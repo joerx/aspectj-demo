@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import java.util.List;
 
 @SuppressWarnings("TryFinallyCanBeTryWithResources")
-public class MainDemoApp {
+public class AccountManagerApp {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AspectJDemoConfig.class);
