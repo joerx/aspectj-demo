@@ -1,7 +1,10 @@
 package io.yodo.springcourse.aspectjdemo;
 
 import io.yodo.springcourse.aspectjdemo.dao.AccountDAO;
+import io.yodo.springcourse.aspectjdemo.entity.Account;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.List;
 
 public class MainDemoApp {
 
@@ -16,7 +19,10 @@ public class MainDemoApp {
             System.out.println();
 
             accountDAO.setAccountRepository(repo);
-            accountDAO.addAccount("johndoe", false);
+            accountDAO.addAccount(new Account("johndoe"));
+
+            List<Account> accounts = accountDAO.findAccounts();
+            System.out.println("Found " + accounts.size() + " account(s)");
 
         } finally {
             ctx.close();
