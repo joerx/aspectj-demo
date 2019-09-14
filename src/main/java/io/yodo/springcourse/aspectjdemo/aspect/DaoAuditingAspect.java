@@ -28,6 +28,6 @@ public class DaoAuditingAspect {
     )
     public void afterReturningAuditingAdvice(JoinPoint jp, List<Account> result) {
         Signature sig = jp.getSignature();
-        System.out.println(">> @AfterReturning [200] Auditing " + sig.toShortString() + " has returned " + result);
+        System.out.println("<< @AfterReturning [200] Auditing " + sig.toShortString() + " has returned " + result);
     }
 }

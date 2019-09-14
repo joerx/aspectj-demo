@@ -11,5 +11,7 @@ public interface AccountDAO {
 
     List<Account> findAccounts();
 
+    Account findAccount(int accountId);
+
     void setAccountRepository(AccountRepository repo);
 }
