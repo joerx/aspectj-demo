@@ -3,10 +3,7 @@ package io.yodo.springcourse.aspectjdemo.aspect;
 import io.yodo.springcourse.aspectjdemo.entity.Account;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import java.util.Arrays;
@@ -29,6 +26,12 @@ public class DaoLoggingAspect {
     public void afterReturningLoggingAdvice(JoinPoint jp) {
         Signature sig = jp.getSignature();
         System.out.println("<< @AfterReturning [" + ORDER + "] Logging " + sig.toShortString() + " has returned");
+    }
+
+    @After("DaoExpressions.publicNonSetterDaoMethod()")
+    public void afterFinallyLoggingAdvice(JoinPoint jp) {
+        Signature sig = jp.getSignature();
+        System.out.println("<< @After [" + ORDER + "] Logging " + sig.toShortString() + " has finally completed");
     }
 
     @AfterThrowing(
